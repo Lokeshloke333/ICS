@@ -13,7 +13,72 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    
+    <style>
+        /* PROCESS STEP ANIMATION */
+.process-step{
+opacity:0;
+transform:translateY(50px);
+transition:all 0.8s ease;
+}
+
+.process-step.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* CARD HOVER */
+.process-card{
+transition:all .35s ease;
+}
+
+.process-card:hover{
+transform:translateY(-6px);
+}
+
+/* ICON ANIMATION */
+.process-icon{
+transition:transform .4s ease;
+}
+
+.process-card:hover .process-icon{
+transform:scale(1.1) rotate(5deg);
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width:768px){
+
+.process-card{
+flex-direction:column;
+text-align:center;
+}
+
+.timeline-line{
+left:50%;
+}
+
+}
+.step-badge{
+position:absolute;
+top:-6px;
+right:-6px;
+
+background:black;
+color:white;
+
+width:36px;
+height:36px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+border-radius:50%;
+font-size:13px;
+font-weight:600;
+
+box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
+    </style>
 </head>
 <body>
 
@@ -23,148 +88,183 @@
      <section class="bg-gradient-to-r from-[#41B121] to-[#41B121] py-12">
   <div class="max-w-7xl mx-auto px-6">
     <h1 class="text-4xl font-medium text-white text-center">
-      OUR PROCESS
+      ICS METHOD
     </h1>
   </div>
 </section>
 
 <!-- Work Process Section -->
-    <section id="work-process-section" class="py-32 bg-white">
-      <div class="container mx-auto px-6">
-        <div class="max-w-7xl mx-auto text-center">
-          <!-- Work Process Section with mobile consistency -->
+   <section id="work-process-section" class="py-32 bg-white">
 
-          <!-- Section Heading -->
-          <div class="text-lime-600 text-xl font-semibold leading-relaxed">
-            Our Work Process
-          </div>
-          <h2
-            class="text-2xl md:text-3xl font-semibold uppercase tracking-widest leading-tight md:leading-snug text-[#6e6e6e]"
-          >
-            Four Step Work Process
-          </h2>
+<div class="container mx-auto px-6 max-w-6xl">
 
-          <!-- Steps Wrapper -->
-          <div
-            class="relative grid md:grid-cols-4 gap-8 items-start mt-16 service-grid"
-          >
-            <!-- Reduced gap for mobile consistency -->
+<!-- Heading -->
+<div class="text-center mb-20">
 
-            <!-- STEP 1 (UP) -->
-            <div class="text-center relative md:translate-y-0">
-              <div class="relative inline-block mb-6">
-                <img src="./Images/process1.svg" class="w-24 h-24 mx-auto" />
-                <span
-                  class="absolute -top-2 -right-2 bg-black text-white text-xs font-semibold w-8 h-8 flex items-center justify-center rounded-full"
-                >
-                  01
-                </span>
-              </div>
-              <h3 class="text-xl font-bold mb-3 text-gray-800">
-                Discover & Evaluate
-              </h3>
-              <p
-                class="text-[#656363] text-base md:text-lg leading-relaxed font-['Arial'] tracking-wide md:tracking-wider"
-              >
-                <strong>Every project begins with understanding.</strong><br>
+<div class="text-lime-600 text-xl font-semibold">
+Our Work Process
+</div>
+
+<h2 class="text-2xl md:text-3xl font-semibold uppercase tracking-widest text-[#6e6e6e]">
+Four Step Work Process
+</h2>
+
+</div>
+
+
+<!-- Timeline Wrapper -->
+<div class="relative space-y-28">
+
+<!-- center line -->
+<div class="hidden md:block absolute left-[56px] top-0 w-[2px] h-full bg-lime-500"></div>
+
+
+<!-- STEP 1 -->
+<div class="process-step flex flex-col md:flex-row items-start gap-10">
+
+<!-- ICON -->
+<div class="relative flex-shrink-0 mx-auto md:mx-0">
+
+<img src="./Images/process1.svg" class="process-icon w-28 h-28">
+
+<span class="absolute -top-2 -right-2 bg-black text-white w-9 h-9 flex items-center justify-center rounded-full text-sm font-semibold shadow-lg">
+01
+</span>
+
+</div>
+
+<!-- CONTENT -->
+<div class="w-full text-center md:text-left">
+
+<h3 class="text-xl font-bold mb-3 text-gray-800">
+Discover & Evaluate
+</h3>
+
+<p class="text-[#656363] text-base md:text-lg leading-relaxed max-w-none">
+
+<strong>Every project begins with understanding.</strong><br>
+
 We take time to learn about your business model, audience expectations, and existing digital structure. Through structured UX evaluation and user journey analysis, we identify friction points, usability gaps, and experience inconsistencies that may impact engagement or conversions.<br>
+
 <strong>This phase creates clarity before change.</strong>
 
-              </p>
-            </div>
+</p>
 
-            <!-- Arrow 1 -->
-            <img
-              src="./Images/arr1.png"
-              class="hidden md:block absolute left-[20%] top-14 w-32 rotate-[30deg]"
-              alt=""
-            />
+</div>
 
-            <!-- STEP 2 (DOWN) -->
-            <div class="text-center relative md:translate-y-24">
-              <div class="relative inline-block mb-6">
-                <img src="./Images/process2.svg" class="w-24 h-24 mx-auto" />
-                <span
-                  class="absolute -top-2 -right-2 bg-black text-white text-xs font-semibold w-8 h-8 flex items-center justify-center rounded-full"
-                >
-                  02
-                </span>
-              </div>
-              <h3 class="text-xl font-bold mb-3 text-gray-800">
-                Strategize & Structure
-              </h3>
-              <p
-                class="text-[#656363] text-base md:text-lg leading-relaxed font-['Arial'] tracking-wide md:tracking-wider"
-              >
-                 <strong>Insights without structure create confusion. We translate findings into a defined improvement roadmap.</strong><br>
+</div>
+
+
+
+<!-- STEP 2 -->
+<div class="process-step flex flex-col md:flex-row items-start gap-10">
+
+<div class="relative flex-shrink-0 mx-auto md:mx-0">
+
+<img src="./Images/process2.svg" class="process-icon w-28 h-28">
+
+<span class="absolute -top-2 -right-2 bg-black text-white w-9 h-9 flex items-center justify-center rounded-full text-sm font-semibold shadow-lg">
+02
+</span>
+
+</div>
+
+<div class="w-full text-center md:text-left">
+
+<h3 class="text-xl font-bold mb-3 text-gray-800">
+Strategize & Structure
+</h3>
+
+<p class="text-[#656363] text-base md:text-lg leading-relaxed max-w-none">
+
+<strong>Insights without structure create confusion. We translate findings into a defined improvement roadmap.</strong><br>
+
 This includes refining user flows, organizing information hierarchy, prioritizing usability enhancements, and defining a structured experience direction. Whether it is a website, web application, or admin portal, we ensure the experience is intentional and logically organized.<br>
+
 <strong>This phase defines what should change and why.</strong>
-              </p>
-            </div>
 
-            <!-- Arrow 2 -->
-            <img
-              src="./Images/arr2.png"
-              class="hidden md:block absolute left-[45%] top-20 w-32 rotate-[-40deg]"
-              alt=""
-            />
+</p>
 
-            <!-- STEP 3 (UP) -->
-            <div class="text-center relative md:translate-y-0">
-              <div class="relative inline-block mb-6">
-                <img src="./Images/process3.svg" class="w-24 h-24 mx-auto" />
-                <span
-                  class="absolute -top-2 -right-2 bg-black text-white text-xs font-semibold w-8 h-8 flex items-center justify-center rounded-full"
-                >
-                  03
-                </span>
-              </div>
-              <h3 class="text-xl font-bold mb-3 text-gray-800">
-                Design & Experience Alignment
-              </h3>
-              <p
-                class="text-[#656363] text-base md:text-lg leading-relaxed font-['Arial'] tracking-wide md:tracking-wider"
-              >
-                <strong>With strategy in place, we create interface systems that balance usability and brand identity.</strong><br>
+</div>
+
+</div>
+
+
+
+<!-- STEP 3 -->
+<div class="process-step flex flex-col md:flex-row items-start gap-10">
+
+<div class="relative flex-shrink-0 mx-auto md:mx-0">
+
+<img src="./Images/process3.svg" class="process-icon w-28 h-28">
+
+<span class="absolute -top-2 -right-2 bg-black text-white w-9 h-9 flex items-center justify-center rounded-full text-sm font-semibold shadow-lg">
+03
+</span>
+
+</div>
+
+<div class="w-full text-center md:text-left">
+
+<h3 class="text-xl font-bold mb-3 text-gray-800">
+Design & Experience Alignment
+</h3>
+
+<p class="text-[#656363] text-base md:text-lg leading-relaxed max-w-none">
+
+<strong>With strategy in place, we create interface systems that balance usability and brand identity.</strong><br>
+
 Layouts are structured for clarity. Interactions are simplified. Content placement is purposeful. Every design decision is aligned with user behavior patterns and business positioning to ensure the interface supports engagement rather than distracts from it.<br>
+
 <strong>This phase transforms structure into experience.</strong>
-              </p>
-              </p>
-            </div>
 
-            <!-- Arrow 3 -->
-            <img
-              src="./Images/arr3.png"
-              class="hidden md:block absolute left-[70%] top-14 w-32 rotate-[30deg]"
-              alt=""
-            />
+</p>
 
-            <!-- STEP 4 (DOWN) -->
-            <div class="text-center relative md:translate-y-24">
-              <div class="relative inline-block mb-6">
-                <img src="./Images/process4.svg" class="w-24 h-24 mx-auto" />
-                <span
-                  class="absolute -top-2 -right-2 bg-black text-white text-xs font-semibold w-8 h-8 flex items-center justify-center rounded-full"
-                >
-                  04
-                </span>
-              </div>
-              <h3 class="text-xl font-bold mb-3 text-gray-800">
-                Validate & Refine
-              </h3>
-              <p
-                class="text-[#656363] text-base md:text-lg leading-relaxed font-['Arial'] tracking-wide md:tracking-wider"
-              >
-                <strong>A digital experience must be tested, reviewed, and refined.</strong><br>
+</div>
+
+</div>
+
+
+
+<!-- STEP 4 -->
+<div class="process-step flex flex-col md:flex-row items-start gap-10">
+
+<div class="relative flex-shrink-0 mx-auto md:mx-0">
+
+<img src="./Images/process4.svg" class="process-icon w-28 h-28">
+
+<span class="absolute -top-2 -right-2 bg-black text-white w-9 h-9 flex items-center justify-center rounded-full text-sm font-semibold shadow-lg">
+04
+</span>
+
+</div>
+
+<div class="w-full text-center md:text-left">
+
+<h3 class="text-xl font-bold mb-3 text-gray-800">
+Validate & Refine
+</h3>
+
+<p class="text-[#656363] text-base md:text-lg leading-relaxed max-w-none">
+
+<strong>A digital experience must be tested, reviewed, and refined.</strong><br>
+
 We conduct usability validation, performance observations, and flow verification to ensure the refined experience aligns with intended outcomes. Recommendations for iterative improvements are documented clearly, supporting long-term optimization and scalability.<br>
+
 <strong>This phase ensures confidence before execution or iteration.</strong>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-   
+
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
 
         <section class="bg-[#186C01] py-12">
         <div class="max-w-7xl mx-auto px-6">
@@ -190,5 +290,30 @@ We conduct usability validation, performance observations, and flow verification
 
      <div id="footer-placeholder"></div>
 <script src="js/include.js"></script>
+<script>
+
+const steps=document.querySelectorAll(".process-step");
+
+const observer=new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+},{threshold:0.2});
+
+steps.forEach(step=>{
+
+observer.observe(step);
+
+});
+
+</script>
 </body>
 </html>
